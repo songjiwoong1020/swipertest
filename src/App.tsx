@@ -5,10 +5,11 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import './styles.css';
 
+const navBarList = ['시작', '캘린더', '소개'];
+
 export default function App() {
   return (
     <>
-
       <Swiper
         spaceBetween={50}
         onSlideChange={() => console.log('slide change')}
@@ -16,6 +17,10 @@ export default function App() {
         direction={'vertical'}
         pagination={{
           clickable: true,
+          renderBullet: function (index, className) {
+            console.log(className)
+            return `<span class="${className}" style="display: inline-block">${navBarList[index]}</span>`;
+          },
         }}
         mousewheel={{ forceToAxis: true }}
         modules={[Pagination, Mousewheel]}
@@ -50,10 +55,6 @@ export default function App() {
         <SwiperSlide>캘린더 영역</SwiperSlide>
         <SwiperSlide>소개 영역</SwiperSlide>
       </Swiper>
-      <div className='navBar'>
-        <div>123</div>
-        <div>456</div>
-      </div>
     </>
   );
 }
