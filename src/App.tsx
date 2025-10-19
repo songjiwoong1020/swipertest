@@ -8,6 +8,7 @@ import './styles.css';
 export default function App() {
   return (
     <>
+
       <Swiper
         spaceBetween={50}
         onSlideChange={() => console.log('slide change')}
@@ -49,6 +50,10 @@ export default function App() {
         <SwiperSlide>캘린더 영역</SwiperSlide>
         <SwiperSlide>소개 영역</SwiperSlide>
       </Swiper>
+      <div className='navBar'>
+        <div>123</div>
+        <div>456</div>
+      </div>
     </>
   );
 }
