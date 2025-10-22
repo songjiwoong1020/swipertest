@@ -187,11 +187,22 @@ body {
   font-weight: 500;
   opacity: 1;
   background: rgba(0, 0, 0, 0);
+}
+
+.swiper-pagination-bullet.color-white {
   color: #c0c0c0;
 }
 
-.swiper-pagination-bullet-active {
+.swiper-pagination-bullet.color-black {
+  color: #5a5a5a;
+}
+
+.swiper-pagination-bullet-active.color-white {
   color: #fff;
+}
+
+.swiper-pagination-bullet-active.color-black {
+  color: #000
 }
 
 .logo-img {

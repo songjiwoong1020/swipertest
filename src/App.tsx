@@ -6,23 +6,30 @@ import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
 import 'swiper/css';
 import 'swiper/css/pagination';
 import './styles.css';
+import { useRef } from 'react';
 
 const mainImgList = ['main_img_001', 'main_img_002', 'main_img_003'];
 const navBarList = ['시작', '캘린더', '소개'];
 
 export default function App() {
+  const mainIndex = useRef(0);
   return (
     <>
       <Swiper
         spaceBetween={50}
-        // onSlideChange={(s) => s.snapIndex === 0 ? s?.pagination?.el : setFontColor('setFontBlack')}
-        onSlideChange={(s) => console.log(s.pagination.el.classList)}
+        onSlideChange={(s) => {
+          console.log(s.params.pagination);
+          mainIndex.current = s.activeIndex;
+          s.pagination.render();
+          s.pagination.update();
+        }}
         onSwiper={(swiper) => console.log(swiper)}
         direction={'vertical'}
         pagination={{
           clickable: true,
           renderBullet: function (index, className) {
-            return `<span class='${className}'>${navBarList[index]}</span>`;
+            let color = mainIndex.current === 0 ? 'color-white' : 'color-black';
+            return `<span class='${className} ${color}'>${navBarList[index]}</span>`;
           },
           verticalClass: 'navBar'
         }}
@@ -66,3 +73,4 @@ export default function App() {
     </>
   );
 }
+
