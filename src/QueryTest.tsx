@@ -12,7 +12,7 @@ const QueryTest = () => {
   })
   return (
     <>
-    {data}
+    {JSON.stringify(data)}
     </>
   )
 }
