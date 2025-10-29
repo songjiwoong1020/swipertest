@@ -17,15 +17,14 @@ export const Calendar = () => {
   //   },
   // })
   return (
-    <>
+    <div style={{width: "55%", height: "95%"}}>
       <FullCalendar
         plugins={[ dayGridPlugin ]}
         initialView="dayGridMonth"
         locale="kr"
         events={events}
-        height={"100%"}
         // contentHeight={"100px"}
       />
-    </>
+    </div>
   );
 }
