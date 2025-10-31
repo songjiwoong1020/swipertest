@@ -35,6 +35,7 @@ export default function App() {
         modules={[Pagination, Mousewheel]}
         className="mySwiper"
         speed={1000}
+        
       >
         {/* 컨텐츠 시작 */}
         <SwiperSlide>
