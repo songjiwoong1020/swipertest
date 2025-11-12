@@ -11,7 +11,7 @@ const events = [
   { title: 'Meeting', start: new Date() },
   { start: new Date(2025, 9, 5, 16, 10), end: new Date(2025, 9, 5, 18, 10),
     description:'test'
-   }
+  }
 ]
 
 // new Date(year, monthIndex, day, hours, minutes, seconds, milliseconds) 
@@ -50,16 +50,18 @@ export const Calendar = () => {
     setMenuPos(null);
   }
 
-  // const { data } = useQuery({
-  //   queryKey: ['queryTest'],
-  //   queryFn: async () => {
-  //     const response = await fetch('http://keonhee.synology.me/rest/dsfootball/checkAuthNumber', {method:'POST'})
-  //     console.log(response.json());
-  //     return await response.json()
-  //   },
-  // })
+  const { data } = useQuery({
+    queryKey: ['queryTest'],
+    queryFn: async () => {
+      const response = await fetch('http://keonhee.synology.me/rest/dsfootball/getEventList', {method:'POST'})
+      console.log(response.json());
+      return await response.json()
+    },
+  })
+
   return (
     <div style={{width: "55%", height: "80%"}}>
+      {JSON.stringify(data)}
       {isModalOpen && selectedEvent && (
         <div style={{
           position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
