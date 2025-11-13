@@ -55,13 +55,19 @@ export const Calendar = () => {
     queryFn: async () => {
       const response = await fetch('http://keonhee.synology.me/rest/dsfootball/getEventList', {method:'POST'})
       console.log(response.json());
-      return await response.json()
+      return await response.json();
+
+
+      fetch('http://keonhee.synology.me/rest/dsfootball/getEventList', {method:'POST'}).then((res) => {
+        return res.json();
+      }).then((res) => {
+        console.log(res);
+      })
     },
   })
 
   return (
     <div style={{width: "55%", height: "80%"}}>
-      {JSON.stringify(data)}
       {isModalOpen && selectedEvent && (
         <div style={{
           position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
