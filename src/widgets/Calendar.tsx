@@ -53,7 +53,7 @@ export const Calendar = () => {
   const { data } = useQuery({
     queryKey: ['queryTest'],
     queryFn: async () => {
-      const response = await fetch('http://keonhee.synology.me/rest/dsfootball/getEventList', {method:'POST'})
+      const response = await fetch('http://localhost:3000/rest/dsfootball/getEventList', {method:'POST'})
       console.log(response.json());
       return await response.json();
 
@@ -63,8 +63,16 @@ export const Calendar = () => {
       }).then((res) => {
         console.log(res);
       })
-    },
+    }, select: (data) => {
+      data.map(v => ({
+        title: v.eventName,
+        start: v.eventDate
+      }));
+    }
   })
+
+
+
 
   return (
     <div style={{width: "55%", height: "80%"}}>
@@ -105,7 +113,7 @@ export const Calendar = () => {
           center: "title",
           end: "next",
         }}
-        events={events}
+        events={data}
         // contentHeight={"100px"}
         eventClick={eventClick}
         eventMouseEnter={eventMouseEnter}
