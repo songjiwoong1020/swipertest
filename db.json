@@ -1,0 +1,20 @@
+{
+  "getEventList": [
+    {
+      "pid": 1,
+      "eventDate": "2025-10-11",
+      "eventName": "풋살경기",
+      "regDate": 1760094000000,
+      "modDate": 1760094000000,
+      "delAt": "N"
+    },
+    {
+      "pid": 2,
+      "eventDate": "2025-10-25",
+      "eventName": "축구경기",
+      "regDate": 1760958000000,
+      "modDate": 1760958000000,
+      "delAt": "N"
+    }
+  ]
+}
