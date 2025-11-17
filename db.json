@@ -16,5 +16,27 @@
       "modDate": 1760958000000,
       "delAt": "N"
     }
+  ],
+  "getParticipateMemberList": [
+    {
+      "pid": 2,
+      "eventPid": 1,
+      "name": "오현민",
+      "phoneNumber": null,
+      "password": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "regDate": "2025-11-03",
+      "modDate": "2025-11-03",
+      "attAt": "Y"
+    },
+    {
+      "pid": 1,
+      "eventPid": 1,
+      "name": "최건희",
+      "phoneNumber": null,
+      "password": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+      "regDate": "2025-10-23",
+      "modDate": "2025-10-23",
+      "attAt": "Y"
+    }
   ]
 }

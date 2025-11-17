@@ -3,9 +3,7 @@
   margin: 50px auto;
 }
 
-
 /* 달력부분 */
-
 
 /* 일요일 날짜: 빨간색 */
 .fc .fc-day-sun a {
@@ -28,7 +26,7 @@
   padding: 0 40px;
   background-color: #76c3c5;
   height: 60px;
-  
+
   font-size: 12px;
   line-height: 30px;
   color: white;
@@ -108,4 +106,4 @@
   border-radius: 4px;
   font-weight: 500;
   font-size: 14px;
-} 
+}

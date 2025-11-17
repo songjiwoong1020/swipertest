@@ -3,51 +3,49 @@ import { Pagination, Mousewheel } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
-import './styles.css';
+import './styles/index.css';
 import { useRef } from 'react';
-import { Calendar, Info, Main} from './widgets';
+import { Calendar, Info, Main } from './widgets';
 
 const navBarList = ['시작', '캘린더', '소개'];
 
 export default function App() {
   const mainIndex = useRef(0);
+
   return (
     <>
       <Swiper
         spaceBetween={50}
-        onSlideChange={(s) => {
+        onSlideChange={s => {
           console.log(s.params.pagination);
           mainIndex.current = s.activeIndex;
           s.pagination.render();
           s.pagination.update();
         }}
-        onSwiper={(swiper) => console.log(swiper)}
+        onSwiper={swiper => console.log(swiper)}
         direction={'vertical'}
         pagination={{
           clickable: true,
           renderBullet: function (index, className) {
-            let color = mainIndex.current === 0 ? 'color-white' : 'color-black';
+            const color = mainIndex.current === 0 ? 'color-white' : 'color-black';
             return `<span class='${className} ${color}'>${navBarList[index]}</span>`;
           },
-          verticalClass: 'navBar'
+          verticalClass: 'navBar',
         }}
         mousewheel={{ forceToAxis: true }}
         modules={[Pagination, Mousewheel]}
         className="mySwiper"
         speed={1000}
-        
       >
-        {/* 컨텐츠 시작 */}
         <SwiperSlide>
-          <Main/>
+          <Main />
         </SwiperSlide>
         <SwiperSlide>
-          <Calendar/>
+          <Calendar />
         </SwiperSlide>
         <SwiperSlide>
           <Info />
         </SwiperSlide>
-        {/* <div className='blurBox'></div> 블러처리 부분 */}
       </Swiper>
     </>
   );
