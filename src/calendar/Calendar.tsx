@@ -1,24 +1,34 @@
-import FullCalendar from '@fullcalendar/react'
-import dayGridPlugin from '@fullcalendar/daygrid'
-import { useQuery } from '@tanstack/react-query'
-import type { EventClickArg } from '@fullcalendar/core'
-import type { EventHoveringArg } from '@fullcalendar/core'
-import { useState } from 'react'
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import { useQuery } from '@tanstack/react-query';
+import type { EventClickArg } from '@fullcalendar/core';
+import type { EventHoveringArg } from '@fullcalendar/core';
+import { useState } from 'react';
 
-import './calendarStyle.css'
+import './calendarStyle.css';
 
-const events = [
-  { title: 'Meeting', start: new Date() },
-  { start: new Date(2025, 9, 5, 16, 10), end: new Date(2025, 9, 5, 18, 10), description: 'test' },
-]
+type getEventList = {
+  success: boolean;
+  data: {
+    pid: number;
+    eventDate: string;
+    eventName: string;
+    regDate: number;
+    modDate: number;
+    delAt: string;
+  }[];
+  text: string | null;
+  message: string;
+  code: string;
+};
 
 // new Date(year, monthIndex, day, hours, minutes, seconds, milliseconds)
 
 export const Calendar = () => {
-  const [selectedEvent, setSelectedEvent] = useState<any>(null)
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [menuEvent, setMenuEvent] = useState<any>(null)
-  const [menuPos, setMenuPos] = useState<{ x: number; y: number } | null>(null)
+  const [selectedEvent, setSelectedEvent] = useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [menuEvent, setMenuEvent] = useState<any>(null);
+  const [menuPos, setMenuPos] = useState<{ x: number; y: number } | null>(null);
 
   const eventClick = (info: EventClickArg) => {
     setSelectedEvent({
@@ -26,51 +36,53 @@ export const Calendar = () => {
       start: info.event.start,
       end: info.event.end,
       description: info.event.extendedProps.description,
-    })
-    setIsModalOpen(true)
-  }
+    });
+    setIsModalOpen(true);
+  };
 
   const eventMouseEnter = (arg: EventHoveringArg) => {
-    const x = arg.jsEvent.clientX
-    const y = arg.jsEvent.clientY
+    const x = arg.jsEvent.clientX;
+    const y = arg.jsEvent.clientY;
     setMenuEvent({
       title: arg.event.title,
       description: arg.event.extendedProps.description,
       start: arg.event.start,
       end: arg.event.end,
-    })
-    setMenuPos({ x, y })
-  }
+    });
+    setMenuPos({ x, y });
+  };
 
   const eventMouseLeave = (_arg: EventHoveringArg) => {
-    setMenuEvent(null)
-    setMenuPos(null)
-  }
+    setMenuEvent(null);
+    setMenuPos(null);
+  };
 
-  const { data } = useQuery({
+  const { data: result } = useQuery({
     queryKey: ['queryTest'],
-    queryFn: async () => {
-      const response = await fetch('http://localhost:3000/rest/dsfootball/getEventList', {
+    queryFn: async (): Promise<getEventList> => {
+      const formData = new FormData();
+      formData.append('eventDate', '2025-10');
+      const response = await fetch('http://keonhee.synology.me/rest/dsfootball/getEventList', {
         method: 'POST',
-      })
-      console.log(response.json())
-      return await response.json()
+        body: formData,
+      });
+      return await response.json();
 
-      fetch('http://keonhee.synology.me/rest/dsfootball/getEventList', { method: 'POST' })
-        .then(res => {
-          return res.json()
-        })
-        .then(res => {
-          console.log(res)
-        })
+      // fetch('http://keonhee.synology.me/rest/dsfootball/getEventList', { method: 'POST' })
+      //   .then(res => {
+      //     return res.json()
+      //   })
+      //   .then(res => {
+      //     console.log(res)
+      //   })
     },
-    select: data => {
-      data.map(v => ({
+    select: result => {
+      return result.data.map(v => ({
         title: v.eventName,
         start: v.eventDate,
-      }))
+      }));
     },
-  })
+  });
 
   return (
     <div style={{ width: '55%', height: '80%' }}>
@@ -151,8 +163,8 @@ export const Calendar = () => {
           <div style={{ marginTop: 8 }}>
             <button
               onClick={() => {
-                setIsModalOpen(true)
-                setSelectedEvent(menuEvent)
+                setIsModalOpen(true);
+                setSelectedEvent(menuEvent);
               }}
             >
               자세히
@@ -170,7 +182,7 @@ export const Calendar = () => {
           center: 'title',
           end: 'next',
         }}
-        events={data}
+        events={result}
         // contentHeight={"100px"}
         eventClick={eventClick}
         eventMouseEnter={eventMouseEnter}
@@ -179,5 +191,5 @@ export const Calendar = () => {
         expandRows={true}
       />
     </div>
-  )
-}
+  );
+};

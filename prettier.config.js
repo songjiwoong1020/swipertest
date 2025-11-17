@@ -3,7 +3,7 @@ export default {
   singleQuote: true,
   tabWidth: 2,
   trailingComma: 'all',
-  // arrowParens: 'avoid',
-  // printWidth: 100,
-  // endOfLine: 'lf',
+  arrowParens: 'avoid',
+  printWidth: 100,
+  endOfLine: 'lf',
 };

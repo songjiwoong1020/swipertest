@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Giants-Bold';
-  src: url('./assets/Giants-Bold.otf') format('truetype');
+  src: url('/public/Giants-Bold.otf') format('truetype');
 }
 
 @font-face {
@@ -30,7 +30,6 @@
 
 html,
 body {
-  /* position: relative; */
   height: 100vh;
 }
 
@@ -99,19 +98,19 @@ body {
 }
 
 .main_img_001 {
-  background-image: url('./assets/main_001.jpeg');
+  background-image: url('/public/main_001.jpeg');
 }
 
 .main_img_002 {
-  background-image: url('./assets/main_002.jpeg');
+  background-image: url('/public/main_002.jpeg');
 }
 
 .main_img_003 {
-  background-image: url('./assets/main_003.jpeg');
+  background-image: url('/public/main_003.jpeg');
 }
 
 .main_img_004 {
-  background-image: url('./assets/main_004.jpeg');
+  background-image: url('/public/main_004.jpeg');
 }
 
 .mainSection {

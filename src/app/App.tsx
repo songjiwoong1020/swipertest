@@ -3,9 +3,10 @@ import { Pagination, Mousewheel } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
-import './styles/index.css';
+import './global.css';
 import { useRef } from 'react';
-import { Calendar, Info, Main } from './widgets';
+import { Info, Main } from '/src/widgets';
+import { Calendar } from '../calendar/Calendar';
 
 const navBarList = ['시작', '캘린더', '소개'];
 
