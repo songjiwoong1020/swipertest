@@ -59,7 +59,7 @@ export const Calendar = () => {
 
   const { data: result } = useQuery({
     queryKey: ['queryTest'],
-    queryFn: async (): Promise<getEventList> => {
+    queryFn: async (): Promise<Response> => {
       const formData = new FormData();
       formData.append('eventDate', '2025-10');
       const response = await fetch('http://keonhee.synology.me/rest/dsfootball/getEventList', {
