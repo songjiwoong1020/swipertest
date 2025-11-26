@@ -13,8 +13,7 @@ interface ApiClientProps<RequestBody> {
 }
 
 export const apiClient = {
-  get: <Response>(URI: string, options?: Omit<ApiClientProps<undefined>, 'method' | 'URI'>) =>
-    baseClient<Response, undefined>({ ...options, method: 'GET', URI }),
+  get: (URI, options) => baseClient(),
 
   post: <Response, RequestBody>(
     URI: string,

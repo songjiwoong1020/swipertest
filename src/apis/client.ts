@@ -19,12 +19,6 @@ export const getEventList = async ({ eventDate }: GetEventListParams) => {
   return response;
 };
 
-const convertResponseToPickeatDetail = async (data: GetEventListParams) => ({
-  eventPid: data.eventDate,
-  name: data.eventDate,
-  password: data.eventDate,
-});
-
 //일정 참여자 리스트
 // eventPid	string ('1')
 const getParticipateMemberList = () => {};
