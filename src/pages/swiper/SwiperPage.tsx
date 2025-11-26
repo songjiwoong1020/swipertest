@@ -1,6 +1,8 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Mousewheel } from 'swiper/modules';
 import { useRef } from 'react';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 const navBarList = ['시작', '캘린더', '소개'];
 
