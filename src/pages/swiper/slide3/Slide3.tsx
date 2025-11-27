@@ -1,4 +1,4 @@
-export const Info = () => {
+const Slide3 = () => {
   return (
     <>
       <div>
@@ -29,3 +29,5 @@ export const Info = () => {
     </>
   );
 };
+
+export default Slide3;

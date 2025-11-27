@@ -3,7 +3,8 @@ import { createRoot } from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import SwiperPage from './pages/swiper/SwiperPage';
-import './global.css';
+import './styles/reset.css';
+import './styles/global.css';
 
 const queryClient = new QueryClient();
 

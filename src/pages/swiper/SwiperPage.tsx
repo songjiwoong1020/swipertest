@@ -4,6 +4,10 @@ import { useRef } from 'react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
+import Slide1 from './slide1/Slide1';
+import Slide2 from './slide2/Slide2';
+import Slide3 from './slide3/Slide3';
+
 const navBarList = ['시작', '캘린더', '소개'];
 
 const SwiperPage = () => {
@@ -35,13 +39,13 @@ const SwiperPage = () => {
         speed={1000}
       >
         <SwiperSlide>
-          <Main />
+          <Slide2 />
         </SwiperSlide>
         <SwiperSlide>
-          <Calendar />
+          <Slide2 />
         </SwiperSlide>
         <SwiperSlide>
-          <Info />
+          <Slide3 />
         </SwiperSlide>
       </Swiper>
       ;

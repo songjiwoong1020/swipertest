@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 
-export const Main = () => {
+const Slide1 = () => {
   const mainImgList = ['main_img_001', 'main_img_002', 'main_img_003'];
 
   return (
@@ -22,4 +22,4 @@ export const Main = () => {
   );
 };
 
-
+export default Slide1;
