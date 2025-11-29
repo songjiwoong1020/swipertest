@@ -1,5 +1,11 @@
+import Calendar from './calendar/Calendar';
+
 const Slide2 = () => {
-  return <></>;
+  return (
+    <>
+      <Calendar />
+    </>
+  );
 };
 
 export default Slide2;
