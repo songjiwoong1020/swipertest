@@ -4,9 +4,9 @@ import { useRef } from 'react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-import Slide1 from './slide1/Slide1';
-import Slide2 from './slide2/Slide2';
-import Slide3 from './slide3/Slide3';
+import Slide1 from './Slide1/Slide1';
+import Slide2 from './Slide2/Slide2';
+import Slide3 from './Slide3/Slide3';
 
 const navBarList = ['시작', '캘린더', '소개'];
 

@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import SwiperPage from './pages/swiper/SwiperPage';
+import SwiperPage from './pages/Swiper/SwiperPage';
 import './styles/reset.css';
 import './styles/global.css';
 
