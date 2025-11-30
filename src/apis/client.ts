@@ -1,21 +1,26 @@
-export type GetEventListParams = {
-  eventDate: string;
-};
-
-export type GetParticipateMemberListParams = {
-  eventPid: string;
-};
-
 export type ParticipateMemberParams = {
   eventPid: string;
   name: string;
   password: string;
 };
 
+//임시
+export const transFormData = (data: Record<string, string>) => {
+  const formData = new FormData();
+  for (const key in data) {
+    formData.append(key, data[key]);
+  }
+  return formData;
+};
+
 //일정리스트
 // eventDate string ('2025-10')
-export const getEventList = async ({ eventDate }: GetEventListParams) => {
-  const response = await fetch('test', { body: eventDate });
+export const getEventList = async (eventDate: string) => {
+  transFormData({ eventDate });
+  const response = await fetch('http://keonhee.synology.me/rest/dsfootball/getEventList', {
+    body: eventDate,
+    method: 'POST',
+  });
   return response;
 };
 
