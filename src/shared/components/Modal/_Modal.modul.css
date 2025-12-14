@@ -1,0 +1,205 @@
+/* 1111111111
+
+export const modalBox = (
+  theme: Theme,
+  width: number = 300,
+  height?: number
+) => css`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  width: ${width}px;
+  ${height ? `min-height: ${height}px;` : ''}
+
+  padding: 24px;
+  background-color: ${theme.colors.white[100]};
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgb(0 0 0 / 10%);
+`;
+
+export const content = css`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+`;
+
+export const title = (theme: Theme) => css`
+  ${theme.typography.BMHANNAAir.bodyBold};
+
+  color: ${theme.colors.black[100]};
+`;
+
+export const message = (theme: Theme) => css`
+  ${theme.typography.BMHANNAAir.caption};
+
+  white-space: pre-line;
+  color: ${theme.colors.gray[600]};
+`;
+
+export const buttonContainer = css`
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+`;
+
+export const modalWidth = css`
+  width: 80%;
+  min-width: 300px;
+  max-width: 450px;
+`;
+
+*/
+
+/* 222222222
+
+const Container = styled.div<{
+  position: Position;
+}>`
+  position: fixed;
+  z-index: ${({ theme }) => theme.zIndex.overlay};
+
+  display: flex;
+  flex-direction: column;
+
+  background: ${({ theme }) => theme.colors.white};
+
+  ${({ position }) => containerStyles[position]}
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: none;
+`;
+
+const ContentWrapper = styled.div<{ position: Position; isMobile: boolean }>`
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: auto;
+
+  ${({ position, isMobile }) => contentWrapperStyles(isMobile)[position]}
+`;
+
+*/
+
+/* 33333333333
+
+const S = {
+  Mini: styled.div`
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    top: 10px;
+    right: 30px;
+
+    border: solid 3px ${({ theme }) => theme.PALETTE.primary[50]};
+
+    background-color: white;
+    border-radius: ${({ theme }) => theme.RADIUS.half};
+    cursor: pointer;
+  `,
+
+  Container: styled.div<{ size: 'sm' | 'md' | 'lg'; opened: boolean }>`
+    ${({ theme }) => theme.POSITION.fixedCenter};
+    width: 90%;
+    max-width: 440px;
+    display: flex;
+    align-items: center;
+
+    top: 50%;
+    z-index: ${({ theme }) => theme.Z_INDEX.modal};
+
+    padding: ${({ theme }) => theme.PADDING.p5};
+
+    background-color: white;
+
+    border-radius: ${({ theme }) => theme.RADIUS.medium};
+    opacity: ${({ opened }) => (opened ? 1 : 0)};
+    pointer-events: ${({ opened }) => (opened ? 'auto' : 'none')};
+
+    transform: translate(-50%, -50%);
+  `,
+
+  IconWrapper: styled.div`
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: -10px;
+    right: -10px;
+
+    margin-left: auto;
+
+    padding: ${({ theme }) => theme.PADDING.p1};
+
+    background-color: ${({ theme }) => theme.PALETTE.primary[50]};
+    border-radius: ${({ theme }) => theme.RADIUS.half};
+    cursor: pointer;
+  `,
+};
+
+*/
+
+/* 4444444444444
+
+export const Content = styled.div<{
+  variant: "default" | "image";
+}>`
+  position: relative;
+  background-color: #fff;
+
+  ${({ variant }) =>
+    variant === "default"
+      ? `
+    max-width: 90dvw;
+    max-height: 90dvh;
+    overflow-y: auto;
+    padding: 2rem;
+    border-radius: 12px;
+  `
+      : `
+    max-width: 90dvw;
+    max-height: 90dvh;
+  `}
+`;
+
+export const CloseButtonWrapper = styled.div`
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 10;
+  padding: 0.5rem;
+`;
+
+export const Title = styled.h2`
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+`;
+
+export const Description = styled.p`
+  margin: 0 0 1rem 0;
+  font-size: 0.875rem;
+  color: #666;
+  line-height: 1.5;
+`;
+
+*/
