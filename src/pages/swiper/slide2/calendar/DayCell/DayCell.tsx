@@ -22,3 +22,26 @@ const DayCell = ({ i }) => {
 };
 
 export default DayCell;
+
+const style = {
+  position: 'fixed',
+  top: '0',
+  left: '0',
+  width: '100vw',
+  height: '100vh',
+  backgroundColor: 'rgba(0, 0, 0, 0.8)',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  zIndex: 999,
+};
+
+const style2 = {
+  position: 'relative',
+  backgroundColor: '#fff',
+  maxWidth: '90dvw',
+  maxHeight: '90dvh',
+  overflowY: 'auto',
+  padding: '2rem',
+  borderRadius: '12px',
+};
