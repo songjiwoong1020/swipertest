@@ -1,6 +1,6 @@
 import styles from './Calendar.module.css';
 import DayCell from './DayCell/DayCell';
-import getDayData from '@/shared/util/getDayData';
+import getDayData from '@/shared/utils/getDayData';
 
 const Calendar = () => {
   const { firstDay, lastDate } = getDayData(new Date());
